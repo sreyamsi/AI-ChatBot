@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            background-color: #f4f4f4; /* Light gray background for the whole page */
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .chatbot-container {
+            width: 500px;
+            margin: 0 auto;
+            background-color: #ffffff; /* White background for the container */
+            border: 1px solid #0a0101; /* Border color */
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(39, 8, 214, 0.1);
+        }
+
+        #chatbot {
+            background-color: #47788b; /* Chatbot background color */
+            border: 1px solid #000000;
+            box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+        }
+
+        #header {
+            background-color: rgb(126, 159, 159); /* Header background color */
+            color: #ffffff; /* Header text color */
+            padding: 20px;
+            font-size: 1em;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        #conversation {
+            height: 400px; /* Height of the conversation area */
+            overflow-y: auto; /* Enable vertical scrolling */
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chatbot-message {
+            display: flex;
+            align-items: flex-start;
+            position: relative;
+            font-size: 16px;
+            line-height: 20px;
+            border-radius: 20px; /* Rounded corners for messages */
+            word-wrap: break-word;
+            white-space: pre-wrap;
+            max-width: 100%;
+            padding: 10px 15px;
+            margin-bottom: 10px; /* Space between messages */
+        }
+
+        .user-message {
+            justify-content: flex-end; /* Align user messages to the right */
+        }
+
+        .chatbot-text {
+            background-color: rgb(234, 237, 238); /* User message background color */
+            color: #000000; /* User message text color */
+            font-size: 1.1em;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #input-form {
+            display: flex;
+            align-items: center;
+            border-top: 1px solid #080909; /* Border color of input area */
+        }
+
+        #input-field {
+            flex: 1;
+            height: 60px; /* Height of the input field */
+            font-size: 14px;
+            padding:0px 10px;
+            color: #000000; /* Input text color */
+            outline: none; /* Remove outline */
+            background: transparent; /* Removed background color */
+            border:none;
+        }
+
+        
+
+        .send-icon {
+            margin-right: 10px;
+            cursor: pointer; /* Cursor style for send button */
+        }
+
+        #submit-button {
+            background-color: #92b7bb; /* Green background for the send button */
+            color: white; /* White text color for the button */
+            border: none; /* Remove border */
+            border-radius: 4px; /* Rounded corners for the button */
+            padding: 10px 20px; /* Padding for the button */
+            cursor: pointer; /* Pointer cursor on hover */
+            font-weight: bolder;
+        }
+
+        #submit-button:hover {
+            background-color: #b9d8dc; /* Darker green on hover */
+        }
+
+        p[sentTime]:hover::after {
+            content: attr(sentTime);
+            position: absolute;
+            top: -3px;
+            font-size: 14px;
+            color: gray; /* Hover text color */
+        }
+
+        .chatbot p[sentTime]:hover::after {
+            left: 15px;
+        }
+
+        .user-message p[sentTime]:hover::after {
+            right: 15px;
+        }
+
+        /* Scrollbar styles */
+        ::-webkit-scrollbar {
+            width: 10px; /* Width of the scrollbar */
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; /* Scrollbar track color */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888; /* Scrollbar thumb color */
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555; /* Scrollbar thumb hover color */
+        }
+
+        /* Chat bubbles */
+        .chatbot-message.user-message .chatbot-text {
+            background-color: rgb(234, 237, 238); /* User message bubble color */
+        }
+
+        .chatbot-message.bot-message .chatbot-text {
+            background-color: rgb(204 229 229); /* Bot message bubble color */
+        }
+    </style>
+</head>
+<body>
+    <div class="chatbot-container">
+        <div id="header">Welcome! I am your Virtual AI Assistant!</div>
+        <div id="conversation"></div>
+        <form id="input-form">
+            <input type="text" id="input-field" placeholder="Type a message..." required>
+            <button type="submit" id="submit-button" class="send-icon">Send</button>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#input-form').on('submit', function(e) {
+                e.preventDefault(); // Prevent the form from submitting the traditional way
+                var message = $('#input-field').val().trim();
+                $('#conversation').append('<div class="chatbot-message user-message"><p class="chatbot-text">' + message + '</p></div>');
+
+                // Check for exit commands
+                if (message.toLowerCase() === "stop" || message.toLowerCase() === "quit" || message.toLowerCase() === "exit") {
+                    $('#conversation').append('<div class="chatbot-message bot-message"><p class="chatbot-text">Chat ended. Thank you! Feel free to come back anytime.</p></div>');
+                    $('#input-field').prop('disabled', true); // Disable input
+                    $('#input-field').val(''); // Clear input field
+                    return; // Exit the function
+                }
+
+                // Continue with the chat if exit commands are not detected
+                $.ajax({
+                    type: "POST",
+                    url: "/get",
+                    data: { msg: message },
+                    success: function(response) {
+                        $('#conversation').append('<div class="chatbot-message bot-message"><p class="chatbot-text">' + response.response + '</p></div>');
+                        $('#conversation').scrollTop($('#conversation')[0].scrollHeight); // Scroll to the bottom
+                    }
+                });
+                $('#input-field').val(''); // Clear input field
+            });
+        });
+    </script>
+</body>
+</html>

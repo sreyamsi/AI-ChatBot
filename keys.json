@@ -1,0 +1,528 @@
+{"keys": [
+    {"tag": "greeting",
+      "patterns": ["Hi", "How are you", "Is anyone there?", "Hello", "Good day", "Whats up", "Hey", "greetings"],
+      "responses": ["Hello!", "Good to see you again!", "Hi there, how can I help?"]
+    },
+    {"tag": "goodbye",
+      "patterns": ["cya", "See you later", "Goodbye", "I am Leaving", "Have a Good day", "bye", "cao", "see ya"],
+      "responses": ["Sad to see you go :(", "Talk to you later", "Goodbye!"]
+    },
+    {
+        "tag": "help",
+        "patterns": ["Can you help me?", "I need assistance", "Could you assist?", "Help", "Please help", "Can you guide me?"],
+        "responses": ["Sure, how can I assist you?", "I'm here to help!", "What can I do for you?", "Let me know how I can help!", "Of course! Tell me what you need."]
+    },
+    {
+        "tag": "affirmation",
+        "patterns": ["Yes", "Yeah", "Sure", "Absolutely", "Of course", "Definitely"],
+        "responses": ["Great!", "Glad to hear that!", "Awesome!", "Perfect!", "Sounds good!"]
+    },
+    {
+        "tag": "negative_response",
+        "patterns": ["No", "Nope", "Not really", "I don't think so", "Nah", "Not at all"],
+        "responses": ["Alright, let me know if you change your mind!", "No problem!", "That's okay!", "Got it!", "Let me know if you need anything else!"]
+    },
+    {
+        "tag": "functionality",
+        "patterns": ["What does this do?", "How does it work?", "What can this feature do?", "Can you explain this?", "How does this function?"],
+        "responses": ["This feature allows you to...", "You can use this to...", "Here's how it works...", "This functionality helps you to...", "Let me explain how this works."]
+    },
+    {
+        "tag": "compliments",
+        "patterns": ["Great job", "Well done", "Awesome", "This is amazing", "Nice work", "I love it"],
+        "responses": ["Thank you!", "Glad you liked it!", "I appreciate that!", "That means a lot!", "Thanks for the compliment!"]
+    },                              
+    {"tag": "programming",
+      "patterns": ["What is progamming?", "What is coding?", "Tell me about programming", "Tell me about coding", "What is software development?"],
+      "responses": ["Programming, coding or software development, means writing computer code to automate tasks."]
+    },
+    {"tag": "how",
+      "patterns": ["How are you?", "How is your day?", "How do you feel?", "Are you good?"],
+      "responses": ["I am fine, thanks for asking!", "I feel great!"]
+    },
+    {"tag": "flask",
+      "patterns": ["What is Flask?", "Do you know about Flask?", "Can you tell me something about Flask?", "Explain Flask to me!"],
+      "responses": ["Flask is a Python web development framework, which is very simple and minimalistic."]
+    },
+    {
+        "tag": "feedback_request",
+        "patterns": [
+          "Can I give feedback?",
+          "I want to provide my thoughts",
+          "How can I give feedback?",
+          "I have some suggestions",
+          "Can I share my opinion?"
+        ],
+        "responses": [
+          "We'd love to hear your feedback!",
+          "Please share your thoughts!",
+          "Your suggestions are welcome!",
+          "Feel free to let us know!",
+          "We're all ears for your feedback!"
+        ]
+      },
+      {
+        "tag": "suggestion",
+        "patterns": [
+          "I have a suggestion.",
+          "May I suggest something?",
+          "I think you should consider this.",
+          "How about this idea?",
+          "I believe this would work better."
+        ],
+        "responses": [
+          "Thanks for your suggestion!",
+          "We appreciate your input!",
+          "Your idea is valuable!",
+          "We'll take your suggestion into account!",
+          "Thanks for sharing that with us!"
+        ]
+      },
+      {
+        "tag": "complaint",
+        "patterns": [
+          "I have a complaint.",
+          "There's an issue I need to report.",
+          "I'm not satisfied with this.",
+          "I would like to express my dissatisfaction.",
+          "This isn't working as expected."
+        ],
+        "responses": [
+          "I'm sorry to hear that!",
+          "Thank you for bringing this to our attention.",
+          "We apologize for the inconvenience!",
+          "Let's resolve this issue together.",
+          "Your concerns are important to us."
+        ]
+      },
+      {
+        "tag": "praise",
+        "patterns": [
+          "I really like this!",
+          "Great job on this!",
+          "This is fantastic!",
+          "I'm impressed with this work.",
+          "I appreciate the effort put into this."
+        ],
+        "responses": [
+          "Thank you for your kind words!",
+          "We appreciate your positive feedback!",
+          "It's great to hear you liked it!",
+          "Your praise motivates us to do better!",
+          "Thanks for recognizing our efforts!"
+        ]
+      },
+      {
+        "tag": "clarification_request",
+        "patterns": [
+          "Can you clarify that?",
+          "I need more information.",
+          "Could you explain this further?",
+          "What do you mean by that?",
+          "I'm not sure I understand."
+        ],
+        "responses": [
+          "Of course, let me explain!",
+          "I can provide more details!",
+          "Sure, I’ll clarify that for you!",
+          "What specific part would you like me to explain?",
+          "I’m here to help clarify any confusion!"
+        ]
+      },
+      {
+        "tag": "follow_up",
+        "patterns": [
+          "Can I follow up on this?",
+          "I want to check the status.",
+          "Is there an update on my request?",
+          "What’s the progress on this?",
+          "Can I get more details later?"
+        ],
+        "responses": [
+          "Absolutely, I’ll keep you updated!",
+          "Feel free to reach out anytime!",
+          "I’ll make sure to follow up!",
+          "You can check back in a few days!",
+          "I appreciate your patience on this!"
+        ]
+      },
+      {
+        "tag": "thank_you",
+        "patterns": [
+          "Thank you for your help.",
+          "I appreciate your assistance.",
+          "Thanks for your support!",
+          "I'm grateful for your help.",
+          "Thanks for the information!"
+        ],
+        "responses": [
+          "You're welcome!",
+          "Glad to be of help!",
+          "Anytime, happy to assist!",
+          "Thank you for your kind words!",
+          "We’re here to help whenever you need!"
+        ]
+      },
+      {
+        "tag": "service_inquiry",
+        "patterns": [
+          "What services do you offer?",
+          "Can you tell me more about your services?",
+          "What can you provide for me?",
+          "I want to know about your offerings.",
+          "What do you specialize in?"
+        ],
+        "responses": [
+          "We offer a range of services, including...",
+          "Our main services include...",
+          "I can provide more details about our offerings.",
+          "Let me explain what we specialize in!",
+          "Feel free to ask about any specific service!"
+        ]
+      },
+      {
+        "tag": "appointment_request",
+        "patterns": [
+          "Can I schedule an appointment?",
+          "I want to set up a meeting.",
+          "Is it possible to book a time?",
+          "I need to arrange a consultation.",
+          "Can we meet to discuss this?"
+        ],
+        "responses": [
+          "Absolutely, let’s find a time!",
+          "I can help you with scheduling!",
+          "What time works best for you?",
+          "Let’s set up an appointment!",
+          "I’ll check availability for you!"
+        ]
+      },
+      {
+        "tag": "availability_check",
+        "patterns": [
+          "Are you available to talk?",
+          "Can I reach you right now?",
+          "Do you have a moment?",
+          "Is this a good time to chat?",
+          "Can we discuss this now?"
+        ],
+        "responses": [
+          "I’m available to chat!",
+          "Now works for me, let’s talk!",
+          "I’m here, how can I assist you?",
+          "Yes, I have time to discuss!",
+          "Feel free to share your thoughts!"
+        ]
+      },
+      {
+        "tag": "feedback_request",
+        "patterns": [
+          "Can I give feedback?",
+          "I want to provide my thoughts",
+          "How can I give feedback?",
+          "I have some suggestions",
+          "Can I share my opinion?"
+        ],
+        "responses": [
+          "We'd love to hear your feedback!",
+          "Please share your thoughts!",
+          "Your suggestions are welcome!",
+          "Feel free to let us know!",
+          "We're all ears for your feedback!"
+        ]
+      },
+      {
+        "tag": "suggestion",
+        "patterns": [
+          "I have a suggestion.",
+          "May I suggest something?",
+          "I think you should consider this.",
+          "How about this idea?",
+          "I believe this would work better."
+        ],
+        "responses": [
+          "Thanks for your suggestion!",
+          "We appreciate your input!",
+          "Your idea is valuable!",
+          "We'll take your suggestion into account!",
+          "Thanks for sharing that with us!"
+        ]
+      },
+      {
+        "tag": "complaint",
+        "patterns": [
+          "I have a complaint.",
+          "There's an issue I need to report.",
+          "I'm not satisfied with this.",
+          "I would like to express my dissatisfaction.",
+          "This isn't working as expected."
+        ],
+        "responses": [
+          "I'm sorry to hear that!",
+          "Thank you for bringing this to our attention.",
+          "We apologize for the inconvenience!",
+          "Let's resolve this issue together.",
+          "Your concerns are important to us."
+        ]
+      },
+      {
+        "tag": "praise",
+        "patterns": [
+          "I really like this!",
+          "Great job on this!",
+          "This is fantastic!",
+          "I'm impressed with this work.",
+          "I appreciate the effort put into this."
+        ],
+        "responses": [
+          "Thank you for your kind words!",
+          "We appreciate your positive feedback!",
+          "It's great to hear you liked it!",
+          "Your praise motivates us to do better!",
+          "Thanks for recognizing our efforts!"
+        ]
+      },
+      {
+        "tag": "clarification_request",
+        "patterns": [
+          "Can you clarify that?",
+          "I need more information.",
+          "Could you explain this further?",
+          "What do you mean by that?",
+          "I'm not sure I understand."
+        ],
+        "responses": [
+          "Of course, let me explain!",
+          "I can provide more details!",
+          "Sure, I’ll clarify that for you!",
+          "What specific part would you like me to explain?",
+          "I’m here to help clarify any confusion!"
+        ]
+      },
+      {
+        "tag": "follow_up",
+        "patterns": [
+          "Can I follow up on this?",
+          "I want to check the status.",
+          "Is there an update on my request?",
+          "What’s the progress on this?",
+          "Can I get more details later?"
+        ],
+        "responses": [
+          "Absolutely, I’ll keep you updated!",
+          "Feel free to reach out anytime!",
+          "I’ll make sure to follow up!",
+          "You can check back in a few days!",
+          "I appreciate your patience on this!"
+        ]
+      },
+      {
+        "tag": "thank_you",
+        "patterns": [
+          "Thank you for your help.",
+          "I appreciate your assistance.",
+          "Thanks for your support!",
+          "I'm grateful for your help.",
+          "Thanks for the information!"
+        ],
+        "responses": [
+          "You're welcome!",
+          "Glad to be of help!",
+          "Anytime, happy to assist!",
+          "Thank you for your kind words!",
+          "We’re here to help whenever you need!"
+        ]
+      },
+      {
+        "tag": "service_inquiry",
+        "patterns": [
+          "What services do you offer?",
+          "Can you tell me more about your services?",
+          "What can you provide for me?",
+          "I want to know about your offerings.",
+          "What do you specialize in?"
+        ],
+        "responses": [
+          "We offer a range of services, including...",
+          "Our main services include...",
+          "I can provide more details about our offerings.",
+          "Let me explain what we specialize in!",
+          "Feel free to ask about any specific service!"
+        ]
+      },
+      {
+        "tag": "appointment_request",
+        "patterns": [
+          "Can I schedule an appointment?",
+          "I want to set up a meeting.",
+          "Is it possible to book a time?",
+          "I need to arrange a consultation.",
+          "Can we meet to discuss this?"
+        ],
+        "responses": [
+          "Absolutely, let’s find a time!",
+          "I can help you with scheduling!",
+          "What time works best for you?",
+          "Let’s set up an appointment!",
+          "I’ll check availability for you!"
+        ]
+      },
+      {
+        "tag": "availability_check",
+        "patterns": [
+          "Are you available to talk?",
+          "Can I reach you right now?",
+          "Do you have a moment?",
+          "Is this a good time to chat?",
+          "Can we discuss this now?"
+        ],
+        "responses": [
+          "I’m available to chat!",
+          "Now works for me, let’s talk!",
+          "I’m here, how can I assist you?",
+          "Yes, I have time to discuss!",
+          "Feel free to share your thoughts!"
+        ]
+      },
+      {
+        "tag": "policy_request",
+        "patterns": [
+          "What is your policy on this?",
+          "Can you explain your policies?",
+          "I need to know your rules.",
+          "What are the guidelines here?",
+          "Can I get more information on policies?"
+        ],
+        "responses": [
+          "Our policies are as follows...",
+          "I can provide you with detailed information on our guidelines.",
+          "Here are our policies regarding that issue.",
+          "Feel free to review our policies at any time.",
+          "Let me know if you need clarification on any policy!"
+        ]
+      },
+      {
+        "tag": "issue_report",
+        "patterns": [
+          "I want to report a problem.",
+          "There's an issue I need to address.",
+          "I have encountered an error.",
+          "How do I report a problem?",
+          "Can I notify you about an issue?"
+        ],
+        "responses": [
+          "Please provide details about the issue.",
+          "I appreciate you bringing this to my attention.",
+          "Let’s work together to resolve this!",
+          "Your report will help us improve.",
+          "Thanks for letting us know about this issue!"
+        ]
+      },
+      {
+        "tag": "interest_express",
+        "patterns": [
+          "I am interested in this.",
+          "Can you tell me more about this?",
+          "I want to learn more.",
+          "I'm curious about this topic.",
+          "What else can you tell me?"
+        ],
+        "responses": [
+          "Sure! Here's more information.",
+          "I'm glad you're interested!",
+          "Let me share more details with you.",
+          "I can provide additional insights.",
+          "Feel free to ask any specific questions!"
+        ]
+      },
+      {
+        "tag": "resource_request",
+        "patterns": [
+          "Can you share some resources?",
+          "I need helpful materials.",
+          "Do you have any references?",
+          "Can you suggest some reading?",
+          "What resources do you recommend?"
+        ],
+        "responses": [
+          "Here are some useful resources!",
+          "I can suggest several great references.",
+          "Let me provide you with some helpful materials.",
+          "I recommend checking out these resources.",
+          "Feel free to explore these suggested readings!"
+        ]
+      },
+      {
+        "tag": "language_preference",
+        "patterns": [
+          "Can we speak in another language?",
+          "Do you support multiple languages?",
+          "I prefer a different language.",
+          "What languages do you speak?",
+          "Can we switch languages?"
+        ],
+        "responses": [
+          "Sure! What language would you prefer?",
+          "I can assist you in various languages.",
+          "Let me know which language you’d like to use!",
+          "I’m happy to accommodate your language preference.",
+          "Feel free to choose a language you’re comfortable with!"
+        ]
+      },
+      {
+        "tag": "event_inquiry",
+        "patterns": [
+          "Are there any upcoming events?",
+          "Can you tell me about events?",
+          "What events do you have planned?",
+          "I want to know about future events.",
+          "When is the next event?"
+        ],
+        "responses": [
+          "We have several exciting events coming up!",
+          "Let me share the details of our upcoming events.",
+          "You can find our event schedule here.",
+          "I’ll keep you informed about our future events.",
+          "Stay tuned for announcements about upcoming events!"
+        ]
+      },
+      {
+        "tag": "subscription_inquiry",
+        "patterns": [
+          "How do I subscribe?",
+          "What do I get with a subscription?",
+          "Can you tell me about your subscription plans?",
+          "I want to know more about subscribing.",
+          "What are the benefits of subscribing?"
+        ],
+        "responses": [
+          "Subscribing offers several benefits, including...",
+          "You can easily subscribe by...",
+          "Let me explain our subscription options.",
+          "Here’s what you’ll get with a subscription!",
+          "Feel free to ask any specific questions about subscribing!"
+        ]
+      },
+      {
+        "tag": "account_management",
+        "patterns": [
+          "How do I manage my account?",
+          "Can I update my account information?",
+          "What can I change in my account?",
+          "I need help with my account.",
+          "How do I access my account settings?"
+        ],
+        "responses": [
+          "You can manage your account by...",
+          "Let me guide you on how to update your information.",
+          "Here’s how to access your account settings.",
+          "If you need help with account management, just let me know!",
+          "Feel free to ask any specific questions about your account!"
+        ]
+      } 
+  ]
+  }
+
+
+ 
+      
